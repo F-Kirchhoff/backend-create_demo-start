@@ -14,4 +14,19 @@ export default async function handler(request, response) {
 
     response.status(200).json(joke);
   }
+
+  if (request.method === "PUT") {
+    const updatedJoke = request.body;
+    await Joke.findByIdAndUpdate(id, {
+      $set: updatedJoke,
+    });
+
+    response.status(200).json({ status: `Joke ${id} successfully updated.` });
+  }
+
+  if (request.method === "DELETE") {
+    await Joke.findByIdAndDelete(id);
+
+    response.status(200).json({ status: `Joke ${id} successfully deleted.` });
+  }
 }
