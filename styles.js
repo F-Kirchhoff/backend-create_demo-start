@@ -34,6 +34,13 @@ export default createGlobalStyle`
     box-shadow: 0px 1px 5px -2px var(--color-granite);
   } 
 
+  form {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+  }
+
   ul {
     list-style-type: none;
     display: grid;
